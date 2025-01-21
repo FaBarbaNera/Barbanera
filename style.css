@@ -31,7 +31,7 @@ nav a {
     border-radius: 5px;
     display: inline-block;
     transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
+    cursor: pointer; /* Indica che è cliccabile */
 }
 
 nav a:hover {
@@ -73,10 +73,9 @@ nav a.active {
     padding: 40px;
     color: #fff;
     text-align: center;
-    background-color: inherit; /* Rendi lo sfondo ereditato dal colore della sezione */
-    min-height: 100vh; /* La sezione occupa almeno l'intera altezza della finestra */
-    overflow: hidden; /* Mantieni tutto dentro la sezione, non permette di fuoriuscire */
-    transition: all 0.3s ease; /* Per una transizione dolce */
+    height: 0; /* Sezioni nascoste per default */
+    overflow: hidden; /* Nascondi il contenuto fuori dalla sezione */
+    transition: height 0.3s ease, padding 0.3s ease; /* Transizione per altezza e padding */
 }
 
 .section h2 {
@@ -114,7 +113,7 @@ nav a.active {
 
 /* Stili per il menu a tendina */
 nav a {
-    cursor: pointer;
+    cursor: pointer; /* Indica che è cliccabile */
     display: block;
     padding: 12px 20px;
     margin: 10px 0;
@@ -131,29 +130,29 @@ nav a:hover {
 nav a:focus + .section,
 nav a:active + .section {
     display: block;
-    min-height: auto; /* Rimuovi il min-height per adattarsi al contenuto */
-    padding: 40px;
-    overflow: visible; /* Permetti lo scorrimento del contenuto se necessario */
+    height: auto;
+    padding: 40px; /* Rendi visibile il contenuto della sezione */
 }
 
 /* Media Queries per dispositivi mobili */
 @media (max-width: 768px) {
     /* Sezioni - visualizzazione a tendina */
     .section {
-        display: none;
-        min-height: auto; /* Rimuovi il min-height per adattarsi al contenuto */
-        padding: 20px;
+        display: none; /* Nascondi le sezioni di default */
+        height: 0; /* Altezza 0 quando non attiva */
+        padding: 0; /* Rimuovi padding quando nascosta */
         transition: height 0.3s ease, padding 0.3s ease;
     }
 
+    /* Mostra la sezione quando è attiva */
     nav a:focus + .section,
     nav a:active + .section {
         display: block;
+        height: auto;
         padding: 20px;
-        min-height: auto; /* Sezione si adatta automaticamente al contenuto */
     }
 
-    /* Menu mobile */
+    /* Menu mobile - miglioramento visivo */
     nav a {
         font-size: 1.2em;
         padding: 10px 20px;
@@ -307,4 +306,40 @@ footer {
 #scopri-menu-link:focus {
     outline: none; /* Rimuovi il bordo di default del focus */
     box-shadow: 0 0 10px #ff8c00; /* Aggiungi un'ombra intorno al bottone quando è selezionato */
+}
+
+/* Stile per l'accordion */
+.accordion {
+    background-color: #ffffff; /* Colore della fila */
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #ccc; /* Bordo per ogni pulsante */
+}
+
+.accordion:hover {
+    background-color: #f0f0f0;
+}
+
+/* Stile per i pannelli (contenuto) nascosti */
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: #0073ff;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Quando il pannello è visibile */
+.accordion.active + .panel {
+    display: block;
 }
