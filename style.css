@@ -31,7 +31,6 @@ nav a {
     border-radius: 5px;
     display: inline-block;
     transition: background-color 0.3s, color 0.3s;
-    cursor: pointer; /* Indica che è cliccabile */
 }
 
 nav a:hover {
@@ -48,7 +47,7 @@ nav a:hover {
 }
 
 #ordina-link {
-    background-color: #228B22; /* Dark Green */
+    background-color: #228B22; /* Dark Green for Ordina dall'Ombrellone */
 }
 
 #ombrelloni-link {
@@ -60,7 +59,7 @@ nav a:hover {
 }
 
 #contatti-link {
-    background-color: #ff1493; /* Deep Pink */
+    background-color: #ff1493; /* Deep Pink (per "Contatti") */
 }
 
 nav a.active {
@@ -73,9 +72,8 @@ nav a.active {
     padding: 40px;
     color: #fff;
     text-align: center;
-    height: 0; /* Sezioni nascoste per default */
-    overflow: hidden; /* Nascondi il contenuto fuori dalla sezione */
-    transition: height 0.3s ease, padding 0.3s ease; /* Transizione per altezza e padding */
+    height: 100vh;
+    transition: all 0.3s ease;
 }
 
 .section h2 {
@@ -109,66 +107,6 @@ nav a.active {
 
 #contatti-section {
     background-color: #ff1493; /* Deep Pink */
-}
-
-/* Stili per il menu a tendina */
-nav a {
-    cursor: pointer; /* Indica che è cliccabile */
-    display: block;
-    padding: 12px 20px;
-    margin: 10px 0;
-    text-align: left;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
-}
-
-nav a:hover {
-    background-color: #444;
-}
-
-/* Sezione attiva - la sezione diventa visibile */
-nav a:focus + .section,
-nav a:active + .section {
-    display: block;
-    height: auto;
-    padding: 40px; /* Rendi visibile il contenuto della sezione */
-}
-
-/* Media Queries per dispositivi mobili */
-@media (max-width: 768px) {
-    /* Sezioni - visualizzazione a tendina */
-    .section {
-        display: none; /* Nascondi le sezioni di default */
-        height: 0; /* Altezza 0 quando non attiva */
-        padding: 0; /* Rimuovi padding quando nascosta */
-        transition: height 0.3s ease, padding 0.3s ease;
-    }
-
-    /* Mostra la sezione quando è attiva */
-    nav a:focus + .section,
-    nav a:active + .section {
-        display: block;
-        height: auto;
-        padding: 20px;
-    }
-
-    /* Menu mobile - miglioramento visivo */
-    nav a {
-        font-size: 1.2em;
-        padding: 10px 20px;
-        margin: 5px 0;
-    }
-
-    nav {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    footer {
-        padding: 10px;
-        font-size: 0.9em;
-    }
 }
 
 /* Sezione Contatti */
@@ -245,11 +183,12 @@ footer {
 #home-images img {
     width: 100%;
     max-width: 300px; /* Limita la larghezza massima delle immagini */
-    height: auto; /* Mantieni l'altezza proporzionata */
+    height: auto; /* Mantieni l'altezza proporzionale */
     border-radius: 8px;
     object-fit: cover; /* Rende l'immagine proporzionata senza deformarla */
     transition: transform 0.3s ease;
 }
+
 
 #home-images img:hover {
     transform: scale(1.05);
@@ -265,6 +204,22 @@ footer {
     animation: slideIn 0.5s ease-out;
 }
 
+/* Media Queries per dispositivi mobili */
+@media (max-width: 768px) {
+    #home-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #home-images img {
+        max-width: 90%;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+}
 /* Iframe per ordinazioni */
 #ordina-frame {
     width: 100%;
@@ -279,7 +234,6 @@ footer {
 #ordina-section iframe {
     height: 1500px; /* Aumenta l'altezza dell'iframe nella sezione Ordina */
 }
-
 /* Stile per il bottone "Scopri il Menu" */
 #scopri-menu-link {
     display: inline-block;
@@ -307,7 +261,6 @@ footer {
     outline: none; /* Rimuovi il bordo di default del focus */
     box-shadow: 0 0 10px #ff8c00; /* Aggiungi un'ombra intorno al bottone quando è selezionato */
 }
-
 /* Stile per l'accordion */
 .accordion {
     background-color: #ffffff; /* Colore della fila */
@@ -342,4 +295,47 @@ footer {
 /* Quando il pannello è visibile */
 .accordion.active + .panel {
     display: block;
+}
+/* Media Queries per dispositivi mobili */
+@media (max-width: 768px) {
+    /* Nascondi tutte le sezioni di default */
+    .section {
+        display: none;
+    }
+
+    /* Mostra le sezioni solo quando vengono cliccate */
+    .section.active {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    /* Stile del menu a tendina per le sezioni */
+    nav a {
+        text-align: left;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    /* Sezione Home: per immagini in formato più stretto */
+    #home-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #home-images img {
+        max-width: 90%;
+        margin-bottom: 10px;
+    }
+
+    /* Altre ottimizzazioni per i dispositivi mobili */
+    footer {
+        padding: 10px;
+    }
 }
