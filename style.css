@@ -1,0 +1,298 @@
+/* Stili generali */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#logo {
+    width: 200px;
+}
+
+/* Menu di navigazione */
+nav {
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+    background-color: #333;
+}
+
+#home-link {
+    background-color: #ff6347; /* Tomato */
+}
+
+#menu-link {
+    background-color: #ff8c00; /* Dark Orange */
+}
+
+#ordina-link {
+    background-color: #228B22; /* Dark Green for Ordina dall'Ombrellone */
+}
+
+#ombrelloni-link {
+    background-color: #1e90ff; /* Dodger Blue */
+}
+
+#recensioni-link {
+    background-color: #9932cc; /* Dark Orchid */
+}
+
+#contatti-link {
+    background-color: #ff1493; /* Deep Pink (per "Contatti") */
+}
+
+nav a.active {
+    background-color: #444;
+}
+
+/* Sezioni dinamiche */
+.section {
+    display: none;
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+    height: 100vh;
+    transition: all 0.3s ease;
+}
+
+.section h2 {
+    font-size: 2.5em;
+}
+
+.section p {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+#home-section {
+    background-color: #ff6347; /* Tomato */
+}
+
+#menu-section {
+    background-color: #ff8c00; /* Dark Orange */
+}
+
+#ordina-section {
+    background-color: #228B22; /* Dark Green */
+}
+
+#ombrelloni-section {
+    background-color: #1e90ff; /* Dodger Blue */
+}
+
+#recensioni-section {
+    background-color: #9932cc; /* Dark Orchid */
+}
+
+#contatti-section {
+    background-color: #ff1493; /* Deep Pink */
+}
+
+/* Sezione Contatti */
+#contatti-section a {
+    display: inline-block;
+    margin: 10px;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+#contatti-section a:hover {
+    background-color: #0056b3;
+}
+
+#contatti-section i {
+    margin-right: 10px;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    display: inline-block;
+    margin: 10px;
+    background-color: #25D366; /* WhatsApp color */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E; /* Darker green for hover effect */
+}
+
+.whatsapp-btn i {
+    margin-right: 8px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Iframe per caricare il menu */
+#menu-frame {
+    width: 100%;
+    border: none;
+    display: none;
+    min-height: 500px;
+    transition: height 0.3s ease;
+}
+
+/* Nuova sezione per le immagini */
+#home-images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+#home-images img {
+    width: 100%;
+    max-width: 300px; /* Limita la larghezza massima delle immagini */
+    height: auto; /* Mantieni l'altezza proporzionale */
+    border-radius: 8px;
+    object-fit: cover; /* Rende l'immagine proporzionata senza deformarla */
+    transition: transform 0.3s ease;
+}
+
+
+#home-images img:hover {
+    transform: scale(1.05);
+}
+
+/* Animazione per il caricamento del menu */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#menu-frame {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 768px) {
+    #home-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #home-images img {
+        max-width: 90%;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+}
+/* Iframe per ordinazioni */
+#ordina-frame {
+    width: 100%;
+    border: none;
+    display: block;
+    min-height: 800px; /* Altezza minima (puoi aumentarla per farlo più grande) */
+    height: 1200px; /* Altezza fissa maggiore */
+    transition: height 0.3s ease;
+}
+
+/* Sezione Ordina (aggiunta) */
+#ordina-section iframe {
+    height: 1500px; /* Aumenta l'altezza dell'iframe nella sezione Ordina */
+}
+/* Stile per il bottone "Scopri il Menu" */
+#scopri-menu-link {
+    display: inline-block;
+    background-color: #ff8c00; /* Colore di sfondo arancione scuro */
+    color: white;
+    font-size: 1.2em;
+    padding: 15px 30px; /* Più spazio per un bottone più grande */
+    border-radius: 25px; /* Bordo arrotondato */
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera per un effetto di profondità */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transizione fluida */
+}
+
+/* Effetto hover */
+#scopri-menu-link:hover {
+    background-color: #ff5c00; /* Colore di sfondo più scuro al passaggio del mouse */
+    transform: translateY(-5px); /* Effetto di spostamento verso l'alto */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Ombra più marcata al passaggio del mouse */
+}
+
+/* Effetto focus per accessibilità */
+#scopri-menu-link:focus {
+    outline: none; /* Rimuovi il bordo di default del focus */
+    box-shadow: 0 0 10px #ff8c00; /* Aggiungi un'ombra intorno al bottone quando è selezionato */
+}
+/* Stile per l'accordion */
+.accordion {
+    background-color: #ffffff; /* Colore della fila */
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #ccc; /* Bordo per ogni pulsante */
+}
+
+.accordion:hover {
+    background-color: #f0f0f0;
+}
+
+/* Stile per i pannelli (contenuto) nascosti */
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: #0073ff;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Quando il pannello è visibile */
+.accordion.active + .panel {
+    display: block;
+}
