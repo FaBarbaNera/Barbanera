@@ -31,6 +31,7 @@ nav a {
     border-radius: 5px;
     display: inline-block;
     transition: background-color 0.3s, color 0.3s;
+    cursor: pointer; /* Indica che è cliccabile */
 }
 
 nav a:hover {
@@ -47,7 +48,7 @@ nav a:hover {
 }
 
 #ordina-link {
-    background-color: #228B22; /* Dark Green for Ordina dall'Ombrellone */
+    background-color: #228B22; /* Dark Green */
 }
 
 #ombrelloni-link {
@@ -59,7 +60,7 @@ nav a:hover {
 }
 
 #contatti-link {
-    background-color: #ff1493; /* Deep Pink (per "Contatti") */
+    background-color: #ff1493; /* Deep Pink */
 }
 
 nav a.active {
@@ -72,8 +73,9 @@ nav a.active {
     padding: 40px;
     color: #fff;
     text-align: center;
-    height: 100vh;
-    transition: all 0.3s ease;
+    height: 0; /* Sezioni nascoste per default */
+    overflow: hidden; /* Nascondi il contenuto fuori dalla sezione */
+    transition: height 0.3s ease, padding 0.3s ease; /* Transizione per altezza e padding */
 }
 
 .section h2 {
@@ -107,6 +109,53 @@ nav a.active {
 
 #contatti-section {
     background-color: #ff1493; /* Deep Pink */
+}
+
+/* Sezione attiva - la sezione diventa visibile */
+nav a:focus + .section,
+nav a:active + .section {
+    display: block;
+    height: auto; /* Usa auto per evitare altezza fissa */
+    padding: 20px; /* Riduci il padding se necessario */
+    max-height: 70vh; /* Limita l'altezza massima della sezione */
+    overflow-y: auto; /* Permetti lo scroll all'interno della sezione se è troppo alta */
+}
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 768px) {
+    /* Sezioni - visualizzazione a tendina */
+    .section {
+        display: none; /* Nascondi le sezioni di default */
+        height: 0; /* Altezza 0 quando non attiva */
+        padding: 0; /* Rimuovi padding quando nascosta */
+        transition: height 0.3s ease, padding 0.3s ease;
+    }
+
+    /* Mostra la sezione quando è attiva */
+    nav a:focus + .section,
+    nav a:active + .section {
+        display: block;
+        height: auto;
+        padding: 20px;
+    }
+
+    /* Menu mobile - miglioramento visivo */
+    nav a {
+        font-size: 1.2em;
+        padding: 10px 20px;
+        margin: 5px 0;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 0.9em;
+    }
 }
 
 /* Sezione Contatti */
@@ -160,14 +209,17 @@ footer {
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Assicurati che il footer non copra il contenuto */
 }
 
 /* Iframe per caricare il menu */
-#menu-frame {
+#menu-frame, #ordina-frame {
     width: 100%;
     border: none;
-    display: none;
-    min-height: 500px;
+    display: block;
+    min-height: 500px; /* Altezza minima */
+    max-height: 80vh; /* Limita l'altezza massima all'80% della viewport */
+    height: auto; /* Imposta l'altezza automatica */
     transition: height 0.3s ease;
 }
 
@@ -204,16 +256,6 @@ footer {
 }
 
 /* Iframe per ordinazioni */
-#ordina-frame {
-    width: 100%;
-    border: none;
-    display: block;
-    min-height: 800px; /* Altezza minima (puoi aumentarla per farlo più grande) */
-    height: 1200px; /* Altezza fissa maggiore */
-    transition: height 0.3s ease;
-}
-
-/* Sezione Ordina (aggiunta) */
 #ordina-section iframe {
     height: 1500px; /* Aumenta l'altezza dell'iframe nella sezione Ordina */
 }
@@ -280,4 +322,37 @@ footer {
 /* Quando il pannello è visibile */
 .accordion.active + .panel {
     display: block;
+}
+/* Iframe per caricare il menu */
+#iframe-frame {
+    width: 100%;
+    border: none;
+    display: none;
+    min-height: 500px; /* Imposta altezza minima */
+    transition: height 0.3s ease;
+    max-height: 80vh; /* Limita l'altezza massima */
+}
+/* Quando il pannello è visibile */
+.panel.active {
+    display: block;
+    animation: slideIn 0.5s ease-out;
+}
+@media (max-width: 768px) {
+    footer {
+        position: static;
+    }
+
+    #home-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #home-images img {
+        max-width: 90%;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
 }
