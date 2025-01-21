@@ -183,12 +183,11 @@ footer {
 #home-images img {
     width: 100%;
     max-width: 300px; /* Limita la larghezza massima delle immagini */
-    height: auto; /* Mantieni l'altezza proporzionale */
+    height: auto; /* Mantieni l'altezza proporzionata */
     border-radius: 8px;
     object-fit: cover; /* Rende l'immagine proporzionata senza deformarla */
     transition: transform 0.3s ease;
 }
-
 
 #home-images img:hover {
     transform: scale(1.05);
@@ -204,22 +203,6 @@ footer {
     animation: slideIn 0.5s ease-out;
 }
 
-/* Media Queries per dispositivi mobili */
-@media (max-width: 768px) {
-    #home-images {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #home-images img {
-        max-width: 90%;
-    }
-
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-}
 /* Iframe per ordinazioni */
 #ordina-frame {
     width: 100%;
@@ -234,6 +217,7 @@ footer {
 #ordina-section iframe {
     height: 1500px; /* Aumenta l'altezza dell'iframe nella sezione Ordina */
 }
+
 /* Stile per il bottone "Scopri il Menu" */
 #scopri-menu-link {
     display: inline-block;
@@ -261,6 +245,7 @@ footer {
     outline: none; /* Rimuovi il bordo di default del focus */
     box-shadow: 0 0 10px #ff8c00; /* Aggiungi un'ombra intorno al bottone quando è selezionato */
 }
+
 /* Stile per l'accordion */
 .accordion {
     background-color: #ffffff; /* Colore della fila */
@@ -296,45 +281,3 @@ footer {
 .accordion.active + .panel {
     display: block;
 }
-/* Media Queries per dispositivi mobili */
-@media (max-width: 768px) {
-    /* Nascondi tutte le sezioni di default */
-    .section {
-        display: none;
-    }
-
-    /* Mostra le sezioni solo quando vengono cliccate */
-    .section.active {
-        display: block;
-    }
-
-    nav a {
-        display: block;
-        margin: 10px 0;
-        padding: 10px;
-    }
-
-    /* Stile del menu a tendina per le sezioni */
-    nav a {
-        text-align: left;
-    }
-
-    .section {
-        padding: 20px;
-    }
-
-    /* Sezione Home: per immagini in formato più stretto */
-    #home-images {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #home-images img {
-        max-width: 90%;
-        margin-bottom: 10px;
-    }
-
-    /* Altre ottimizzazioni per i dispositivi mobili */
-    footer {
-        padding: 10px;
-    }
